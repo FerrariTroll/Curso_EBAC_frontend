@@ -9,3 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - added changelog.md
+- added branch exercicio_git
+- added nome.txt
