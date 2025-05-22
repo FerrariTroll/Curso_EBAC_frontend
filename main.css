@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: gray;
+    color: black;
+}
+
+body {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+}
+
+#number1, 
+#number2 {
+    display: block;
+    font-size: larger;
+    margin-bottom: 8px;
+}
+
+.container button {
+    display: block;
+    font-size: larger;
+}
