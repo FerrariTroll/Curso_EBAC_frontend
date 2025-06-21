@@ -1,0 +1,29 @@
+@use 'variables';
+
+header {
+  background-color: variables.$cor-header-bg;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: variables.$padding-header-vertical 0;
+  }
+
+  .menu {
+    display: flex;
+
+    li {
+      font-weight: bold;
+      margin-left: variables.$margin-menu-li-left;
+
+      a {
+        color: variables.$cor-menu-texto;
+        text-decoration: none;
+      }
+    }
+  }
+}
