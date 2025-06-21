@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAEA,KACE,iBAHU","file":"main.css","sourcesContent":["$cor-fundo: #f5f5f5;\n\nbody {\n  background-color: $cor-fundo;\n}"]}
