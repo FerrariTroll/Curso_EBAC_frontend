@@ -1,0 +1,33 @@
+.container {
+  max-width: @container-max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: @colors[background];
+}
+
+header {
+  background-color: @colors[primary];
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: @spacing[header-padding-vertical] 0;
+  }
+}
+
+section {
+  padding: @spacing[section-padding-vertical] 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    max-width: @container-max-width-medium;
+  }
+}
