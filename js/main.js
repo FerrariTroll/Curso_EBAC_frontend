@@ -1,23 +1,46 @@
+function adicionarAoDisplay(valor) {
+  document.querySelector('#display').value += valor;
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const display = document.getElementById("display");
-  const buttons = document.querySelectorAll("button");
+function limparDisplay() {
+  document.querySelector('#display').value = '';
+}
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const value = btn.textContent;
+function calcular() {
+  const display = document.querySelector('#display');
+  try {
+    display.value = eval(display.value);
+  } catch {
+    display.value = 'Erro';
+  }
+}
 
-      if (value === "C") {
-        display.value = "";
-      } else if (value === "=") {
-        try {
-          display.value = eval(display.value);
-        } catch {
-          display.value = "Erro";
-        }
-      } else {
-        display.value += value;
-      }
-    });
-  });
+function apagarUltimo() {
+  const display = document.querySelector('#display');
+  display.value = display.value.slice(0, -1);
+}
+
+document.addEventListener('keydown', function (event) {
+  const key = event.key;
+
+  if (!isNaN(key) || key === '.') {
+    adicionarAoDisplay(key);
+  }
+
+  if (['+', '-', '*', '/'].includes(key)) {
+    adicionarAoDisplay(key);
+  }
+
+  if (key === 'Enter') {
+    event.preventDefault(); // Evita comportamento padrão
+    calcular();
+  }
+
+  if (key === 'Backspace') {
+    apagarUltimo();
+  }
+
+  if (key === 'Escape') {
+    limparDisplay();
+  }
 });
