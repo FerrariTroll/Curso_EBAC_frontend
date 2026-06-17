@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page — [NOME DO FILME]</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__content">
+      <a class="logo" href="#top">Star Wars</a>
+      <nav class="nav">
+        <a href="#sinopse">Sinopse</a>
+        <a href="#elenco">Elenco</a>
+        <a href="#trailer">Trailer</a>
+        <a href="#galeria">Galeria</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__content">
+        <div class="hero__text">
+          <p class="badge">[GÊNERO] • [ANO]</p>
+          <h1>Star Wars)</h1>
+          <p class="subtitle">...</p>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="#trailer">Ver trailer</a>
+            <a class="btn btn--outline" href="#sinopse">Saiba mais</a>
+          </div>
+
+          <ul class="meta">
+            <li><strong>Duração:</strong> 2h 21min</li>
+            <li><strong>Direção:</strong> George Lucas</li>
+            <li><strong>Classificação:</strong> 14 Violência</li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <img src="./img/poster.jpg" alt="Pôster do filme [NOME DO FILME]" />
+        </div>
+      </div>
+    </section>
+
+    <section id="sinopse" class="section">
+      <div class="container">
+        <h2>Sinopse</h2>
+        <p>
+          A galáxia está em guerra. A República, que sobreviveu por mil anos, começa a rachar por dentro — corrompida por forças que poucos conseguem enxergar. Os Jedi lutam para manter a paz, mas a escuridão avança de onde menos se espera. E no centro de tudo, um homem enfrenta a escolha mais difícil de sua vida. Uma escolha que mudará a galáxia para sempre.
+        </p>
+      </div>
+    </section>
+
+    <section id="elenco" class="section">
+      <div class="container">
+        <h2>Elenco</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>[Ator/Atriz]</h3>
+            <p>[Personagem]</p>
+          </article>
+          <article class="card">
+            <h3>[Ator/Atriz]</h3>
+            <p>[Personagem]</p>
+          </article>
+          <article class="card">
+            <h3>[Ator/Atriz]</h3>
+            <p>[Personagem]</p>
+          </article>
+          <article class="card">
+            <h3>[Ator/Atriz]</h3>
+            <p>[Personagem]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trailer" class="section">
+      <div class="container">
+        <h2>Trailer</h2>
+        <div class="video">
+          <!-- Troque o ID do vídeo no final da URL -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Trailer de [NOME DO FILME]"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="section">
+      <div class="container">
+        <h2>Galeria</h2>
+        <div class="gallery">
+          <img src="./img/still-1.jpg" alt="Cena do filme [NOME DO FILME]" />
+          <img src="./img/still-2.jpg" alt="Cena do filme [NOME DO FILME]" />
+          <img src="./img/still-3.jpg" alt="Cena do filme [NOME DO FILME]" />
+          <img src="./img/still-4.jpg" alt="Cena do filme [NOME DO FILME]" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Landing page feita para o exercício EBAC — Módulo 21.</p>
+    </div>
+  </footer>
+</body>
+</html>
