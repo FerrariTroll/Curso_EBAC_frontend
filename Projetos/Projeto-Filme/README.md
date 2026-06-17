@@ -4,7 +4,7 @@ Projeto desenvolvido como exercício do Módulo 21 da EBAC.
 
 ## Sobre
 
-Landing page temática de Star wars III, com seções de sinopse, elenco, trailer e galeria de imagens.
+Landing page temática de Star wars, com seções de sinopse, elenco, trailer e galeria de imagens.
 
 ## Tecnologias
 
