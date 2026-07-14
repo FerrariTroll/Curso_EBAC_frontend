@@ -1,27 +1,68 @@
-// Variáveis de cor
+// 1. VARIÁVEIS
+// ─────────────────────────────────────────────
+
 $cor-fundo:      #0d1b2a;
-$cor-fundo-card: #ffffff;
+$cor-fundo-card: #111e2e;
 $cor-borda:      #1f3a5f;
 $cor-texto:      #a8c8e8;
 $cor-badge:      #1f3a5f;
+$cor-titulo:     #ffe81f;
+
+// nave / painéis metálicos
+$metal-fundo:    #111214;
+$metal-painel:   rgba(255, 255, 255, 0.03);
+$metal-seam:     rgba(255, 255, 255, 0.07);
+
+
+// 2. RESET & BASE
+// ─────────────────────────────────────────────
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
+  color: #e8e8f0;
+
+  // textura de painéis metálicos estilo Star Wars
+  background-color: $metal-fundo;
+  background-image:
+    // costuras principais dos painéis (grade grande)
+    linear-gradient($metal-seam 1px, transparent 1px),
+    linear-gradient(90deg, $metal-seam 1px, transparent 1px),
+    // subdivisões internas dos painéis (grade pequena)
+    linear-gradient($metal-painel 1px, transparent 1px),
+    linear-gradient(90deg, $metal-painel 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
 }
+
+
+// 3. LAYOUT
+// ─────────────────────────────────────────────
 
 .container {
   width: min(1100px, 92%);
   margin: 0 auto;
 }
 
+
+// 4. HEADER
+// ─────────────────────────────────────────────
+
 .header {
   position: sticky;
   top: 0;
-  background: $cor-fundo;
-  border-bottom: 1px solid $cor-borda;
+  background: rgba(17, 18, 20, 0.95);
+  border-bottom: 1px solid $metal-seam;
   z-index: 10;
 
   &__content {
@@ -46,24 +87,140 @@ body {
   &:hover { text-decoration: underline; }
 }
 
+
+// 5. HERO
+// ─────────────────────────────────────────────
+
 .hero {
-  background: radial-gradient(1200px 400px at 20% 0%, #1a3a5c 0%, $cor-fundo 60%);
+  position: relative;
+  background: #00000f;
   color: #fff;
   padding: 54px 0;
+  overflow: hidden;
 
+  // 5.1 céu estrelado — 6 camadas com tamanhos e offsets irregulares para eliminar faixas
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(white 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.3) 2px, transparent 2px);
+    background-size:
+      90px  100px,
+      160px 180px,
+      75px  85px,
+      115px 95px,
+      200px 170px,
+      280px 250px;
+    background-position:
+      0 0,
+      23px 41px,
+      60px 25px,
+      37px 72px,
+      105px 53px,
+      145px 88px;
+    opacity: 0.7;
+    animation: stars 25s linear infinite;
+  }
+
+  // 5.2 transição janela → metal (aro inferior da janela)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+
+    // gradiente que funde o espaço com o metal nas bordas
+    background:
+      linear-gradient(to bottom,
+        transparent 85%,
+        rgba(17, 18, 20, 0.25) 95%,
+        #111214 100%
+      ),
+      linear-gradient(to right,
+        rgba(17, 18, 20, 0.35) 0%,
+        transparent 2%,
+        transparent 98%,
+        rgba(17, 18, 20, 0.35) 100%
+      );
+
+    // linha de brilho metálico no aro inferior
+    box-shadow:
+      inset 0 -2px 0 rgba(255, 255, 255, 0.04),
+      inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  // 5.3 layout interno
   &__content {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 28px;
     align-items: center;
   }
 
-  &__media img {
-    width: 100%;
-    border-radius: 18px;
-    border: 1px solid $cor-borda;
+  h1 {
+    color: $cor-titulo;
+    text-shadow: 0 0 30px rgba(255, 232, 31, 0.4);
+  }
+
+  // 5.3 slideshow de capas (lado direito do hero)
+  &__media {
+    .slideshow {
+      position: relative;
+      width: 100%;
+      padding-top: 140%; // proporção de pôster ~2:3
+      border-radius: 18px;
+      border: 1px solid $cor-borda;
+      overflow: hidden; // garante que qualquer imagem fique dentro do container
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top; // ancora pelo topo para pôsteres verticais
+        opacity: 0;
+        transition: opacity 1s ease;
+
+        &.active { opacity: 1; }
+      }
+    }
+
+    .slideshow__dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &.active { background: $cor-titulo; }
+      }
+    }
   }
 }
+
+
+// 7. COMPONENTES COMPARTILHADOS
+//    (badge, botões, subtítulo, meta)
+// ─────────────────────────────────────────────
 
 .badge {
   display: inline-block;
@@ -74,8 +231,16 @@ body {
   color: $cor-texto;
 }
 
-.subtitle { color: $cor-texto; max-width: 48ch; }
-.actions  { display: flex; gap: 12px; margin: 18px 0; }
+.subtitle {
+  color: $cor-texto;
+  max-width: 48ch;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
 
 .btn {
   display: inline-block;
@@ -97,31 +262,65 @@ body {
   li { margin: 6px 0; }
 }
 
+
+// 8. SEÇÕES — estilo base compartilhado
+// ─────────────────────────────────────────────
+
 .section {
   padding: 46px 0;
+
   h2 { margin-top: 0; }
+
+  // fundo translúcido deixa a textura metálica do body vazar
+  &--panel {
+    background: rgba(17, 18, 20, 0.6);
+    border-top: 1px solid $metal-seam;
+    border-bottom: 1px solid $metal-seam;
+  }
 }
+
+
+// 9. FILMES — grid e cards
+// ─────────────────────────────────────────────
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+
+  &--6 { grid-template-columns: repeat(6, 1fr); }
 }
 
 .card {
-  border: 1px solid #d0dce8;
+  border: 1px solid $cor-borda;
   border-radius: 14px;
   padding: 14px;
   background: $cor-fundo-card;
+
+  &__ep {
+    font-size: 12px;
+    color: $cor-titulo;
+    margin: 0 0 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h3 { margin: 0 0 6px; font-size: 15px; color: #fff; }
+  p  { margin: 0; font-size: 13px; color: $cor-texto; }
 }
+
+
+// 10. TRAILER — iframe responsivo 16:9
+// ─────────────────────────────────────────────
 
 .video {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 56.25%; // proporção 16:9
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid #d0dce8;
+  border: 1px solid $cor-borda;
 
   iframe {
     position: absolute;
@@ -131,6 +330,10 @@ body {
     border: 0;
   }
 }
+
+
+// 11. GALERIA
+// ─────────────────────────────────────────────
 
 .gallery {
   display: grid;
@@ -142,26 +345,46 @@ body {
     height: 180px;
     object-fit: cover;
     border-radius: 14px;
-    border: 1px solid #d0dce8;
+    border: 1px solid $cor-borda;
   }
 }
 
+
+// 12. FOOTER
+// ─────────────────────────────────────────────
+
 .footer {
-  background: $cor-fundo;
+  background: rgba(17, 18, 20, 0.95);
+  border-top: 1px solid $metal-seam;
   color: $cor-texto;
   padding: 22px 0;
   text-align: center;
 }
 
+
+// 13. ANIMAÇÕES
+// ─────────────────────────────────────────────
+
+@keyframes stars {
+  from { background-position: 0 0,      23px 41px,   60px 25px,   37px 72px,   105px 53px,   145px 88px; }
+  to   { background-position: 0 100px,  23px 221px,  60px 110px,  37px 167px,  105px 223px,  145px 338px; }
+}
+
+
+// 14. RESPONSIVO
+// ─────────────────────────────────────────────
+
 @media (max-width: 900px) {
   .hero__content { grid-template-columns: 1fr; }
   .grid          { grid-template-columns: repeat(2, 1fr); }
+  .grid--6       { grid-template-columns: repeat(3, 1fr); }
   .gallery       { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
-  .nav  { display: none; }
-  .grid { grid-template-columns: 1fr; }
+  .nav     { display: none; }
+  .grid    { grid-template-columns: 1fr; }
+  .grid--6 { grid-template-columns: repeat(2, 1fr); }
   .gallery {
     grid-template-columns: 1fr;
     img { height: 220px; }

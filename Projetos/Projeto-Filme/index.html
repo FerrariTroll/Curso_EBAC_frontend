@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page — [NOME DO FILME]</title>
+  <title>Star Wars — Episódios I ao VI</title>
   <link rel="stylesheet" href="./css/main.css" />
 </head>
+
 <body>
   <header class="header">
     <div class="container header__content">
       <a class="logo" href="#top">Star Wars</a>
       <nav class="nav">
-        <a href="#sinopse">Sinopse</a>
-        <a href="#elenco">Elenco</a>
+        <a href="#saga">A Saga</a>
+        <a href="#filmes">Filmes</a>
         <a href="#trailer">Trailer</a>
         <a href="#galeria">Galeria</a>
       </nav>
@@ -23,69 +24,97 @@
     <section class="hero">
       <div class="container hero__content">
         <div class="hero__text">
-          <p class="badge">[GÊNERO] • [ANO]</p>
-          <h1>Star Wars)</h1>
-          <p class="subtitle">...</p>
+          <p class="badge">Ficção Científica • 1977 – 2005</p>
+          <h1>Star Wars</h1>
+          <p class="subtitle">Uma saga épica de heróis, vilões e a eterna batalha entre o bem e o mal — contada em seis filmes inesquecíveis.</p>
 
           <div class="actions">
             <a class="btn btn--primary" href="#trailer">Ver trailer</a>
-            <a class="btn btn--outline" href="#sinopse">Saiba mais</a>
+            <a class="btn btn--outline" href="#filmes">Ver filmes</a>
           </div>
 
           <ul class="meta">
-            <li><strong>Duração:</strong> 2h 21min</li>
             <li><strong>Direção:</strong> George Lucas</li>
-            <li><strong>Classificação:</strong> 14 Violência</li>
+            <li><strong>Episódios:</strong> I ao VI</li>
+            <li><strong>Classificação:</strong> 10 anos</li>
           </ul>
         </div>
 
         <div class="hero__media">
-          <img src="./img/poster.jpg" alt="Pôster do filme [NOME DO FILME]" />
+          <div class="slideshow">
+            <img class="slide active" src="./img/Ep 1.jpg" alt="Star Wars Episódio I" />
+            <img class="slide" src="./img/Ep 2.jpg" alt="Star Wars Episódio II" />
+            <img class="slide" src="./img/Ep 3.jpg" alt="Star Wars Episódio III" />
+            <img class="slide" src="./img/Ep 4.jpg" alt="Star Wars Episódio IV" />
+            <img class="slide" src="./img/Ep 5.jpg" alt="Star Wars Episódio V" />
+            <img class="slide" src="./img/Ep 6.jpg" alt="Star Wars Episódio VI" />
+          </div>
+          <div class="slideshow__dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+            <span class="dot" data-index="5"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="sinopse" class="section">
+    <section id="saga" class="section section--panel">
       <div class="container">
-        <h2>Sinopse</h2>
+        <h2>A Saga</h2>
         <p>
-          A galáxia está em guerra. A República, que sobreviveu por mil anos, começa a rachar por dentro — corrompida por forças que poucos conseguem enxergar. Os Jedi lutam para manter a paz, mas a escuridão avança de onde menos se espera. E no centro de tudo, um homem enfrenta a escolha mais difícil de sua vida. Uma escolha que mudará a galáxia para sempre.
+          Star Wars é uma das franquias mais icônicas da história do cinema. Criada por George Lucas, a saga se divide em duas trilogias: a <strong>Trilogia Prequel</strong> (Episódios I, II e III), que conta a ascensão e queda de Anakin Skywalker, e a <strong>Trilogia Original</strong> (Episódios IV, V e VI), que acompanha Luke Skywalker na luta para restaurar a paz na galáxia e resgatar o pai do lado sombrio da Força.
         </p>
       </div>
     </section>
 
-    <section id="elenco" class="section">
+    <section id="filmes" class="section section--panel">
       <div class="container">
-        <h2>Elenco</h2>
-        <div class="grid">
+        <h2>Os Filmes</h2>
+        <div class="grid grid--6">
           <article class="card">
-            <h3>[Ator/Atriz]</h3>
-            <p>[Personagem]</p>
+            <p class="card__ep">Episódio I</p>
+            <h3>A Ameaça Fantasma</h3>
+            <p>1999 • 136 min</p>
           </article>
           <article class="card">
-            <h3>[Ator/Atriz]</h3>
-            <p>[Personagem]</p>
+            <p class="card__ep">Episódio II</p>
+            <h3>Ataque dos Clones</h3>
+            <p>2002 • 142 min</p>
           </article>
           <article class="card">
-            <h3>[Ator/Atriz]</h3>
-            <p>[Personagem]</p>
+            <p class="card__ep">Episódio III</p>
+            <h3>A Vingança dos Sith</h3>
+            <p>2005 • 140 min</p>
           </article>
           <article class="card">
-            <h3>[Ator/Atriz]</h3>
-            <p>[Personagem]</p>
+            <p class="card__ep">Episódio IV</p>
+            <h3>Uma Nova Esperança</h3>
+            <p>1977 • 121 min</p>
+          </article>
+          <article class="card">
+            <p class="card__ep">Episódio V</p>
+            <h3>O Império Contra-Ataca</h3>
+            <p>1980 • 124 min</p>
+          </article>
+          <article class="card">
+            <p class="card__ep">Episódio VI</p>
+            <h3>O Retorno de Jedi</h3>
+            <p>1983 • 131 min</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="trailer" class="section">
+    <section id="trailer" class="section section--panel">
       <div class="container">
         <h2>Trailer</h2>
         <div class="video">
-          <!-- Troque o ID do vídeo no final da URL -->
           <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="Trailer de [NOME DO FILME]"
+            src="https://www.youtube.com/embed/sGbxmsDFVnE"
+            title="Star Wars — Trailer Oficial"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
@@ -93,14 +122,14 @@
       </div>
     </section>
 
-    <section id="galeria" class="section">
+    <section id="galeria" class="section section--panel">
       <div class="container">
         <h2>Galeria</h2>
         <div class="gallery">
-          <img src="./img/still-1.jpg" alt="Cena do filme [NOME DO FILME]" />
-          <img src="./img/still-2.jpg" alt="Cena do filme [NOME DO FILME]" />
-          <img src="./img/still-3.jpg" alt="Cena do filme [NOME DO FILME]" />
-          <img src="./img/still-4.jpg" alt="Cena do filme [NOME DO FILME]" />
+          <img src="./img/still-1.jpg" alt="Cena de Star Wars" />
+          <img src="./img/still-2.jpg" alt="Cena de Star Wars" />
+          <img src="./img/still-3.jpg" alt="Cena de Star Wars" />
+          <img src="./img/still-4.jpg" alt="Cena de Star Wars" />
         </div>
       </div>
     </section>
@@ -111,5 +140,7 @@
       <p>Landing page feita para o exercício EBAC — Módulo 21.</p>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>
