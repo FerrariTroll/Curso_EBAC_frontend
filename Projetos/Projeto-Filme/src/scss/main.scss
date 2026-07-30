@@ -287,6 +287,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  align-items: start; // cada card tem sua própria altura, não estica com os vizinhos
 
   &--6 { grid-template-columns: repeat(6, 1fr); }
 }
@@ -294,8 +295,16 @@ body {
 .card {
   border: 1px solid $cor-borda;
   border-radius: 14px;
-  padding: 14px;
   background: $cor-fundo-card;
+  padding: 14px;
+  min-height: 120px;
+  cursor: pointer;
+  transition: border-color 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    border-color: rgba(0, 207, 255, 0.4);
+    box-shadow: 0 0 16px rgba(0, 207, 255, 0.12);
+  }
 
   &__ep {
     font-size: 12px;
@@ -306,33 +315,143 @@ body {
     letter-spacing: 0.05em;
   }
 
-  h3 { margin: 0 0 6px; font-size: 15px; color: #fff; }
-  p  { margin: 0; font-size: 13px; color: $cor-texto; }
+  h3 { margin: 0 0 4px; font-size: 15px; color: #fff; }
+
+  &__meta { margin: 0; font-size: 13px; color: $cor-texto; }
 }
 
 
-// 10. TRAILER — iframe responsivo 16:9
+// 9.5 MODAL HOLOGRÁFICO
 // ─────────────────────────────────────────────
 
-.video {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; // proporção 16:9
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid $cor-borda;
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
 
-  iframe {
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__overlay {
     position: absolute;
     inset: 0;
+    background: rgba(0, 5, 20, 0.85);
+    cursor: pointer;
+  }
+
+  &__box {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 28px;
+    max-width: 680px;
+    width: 92%;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 207, 255, 0.45);
+    background: rgba(0, 10, 40, 0.93);
+    box-shadow:
+      0 0 40px rgba(0, 207, 255, 0.2),
+      inset 0 0 60px rgba(0, 207, 255, 0.04);
+    animation: holo-flicker 9s ease-in-out infinite;
+
+    // linhas de varredura (scan lines)
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 207, 255, 0.025) 3px,
+        rgba(0, 207, 255, 0.025) 4px
+      );
+      pointer-events: none;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: rgba(0, 207, 255, 0.6);
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s;
+
+    &:hover { color: #00cfff; }
+  }
+
+  &__cover {
     width: 100%;
-    height: 100%;
-    border: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 207, 255, 0.3);
+    object-fit: cover;
+    align-self: start;
+  }
+
+  &__ep-label {
+    font-size: 11px;
+    color: #00cfff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 6px;
+  }
+
+  &__title {
+    color: $cor-titulo;
+    margin: 0 0 6px;
+    font-size: 20px;
+    text-shadow: 0 0 18px rgba(255, 232, 31, 0.35);
+  }
+
+  &__meta {
+    color: rgba(0, 207, 255, 0.55);
+    font-size: 13px;
+    margin: 0 0 14px;
+  }
+
+  &__sinopse {
+    color: #c0dff5;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+
+  &__elenco-label {
+    color: rgba(0, 207, 255, 0.65);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin: 0 0 5px;
+  }
+
+  &__atores {
+    color: #98c8e8;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
   }
 }
 
 
-// 11. GALERIA
+// 10. PERSONAGENS
 // ─────────────────────────────────────────────
 
 .gallery {
@@ -370,15 +489,25 @@ body {
   to   { background-position: 0 100px,  23px 221px,  60px 110px,  37px 167px,  105px 223px,  145px 338px; }
 }
 
+@keyframes holo-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93%           { opacity: 0.82; }
+  94%           { opacity: 1; }
+  96%           { opacity: 0.88; }
+  97%           { opacity: 1; }
+}
+
 
 // 14. RESPONSIVO
 // ─────────────────────────────────────────────
 
 @media (max-width: 900px) {
-  .hero__content { grid-template-columns: 1fr; }
-  .grid          { grid-template-columns: repeat(2, 1fr); }
-  .grid--6       { grid-template-columns: repeat(3, 1fr); }
-  .gallery       { grid-template-columns: repeat(2, 1fr); }
+  .hero__content  { grid-template-columns: 1fr; }
+  .grid           { grid-template-columns: repeat(2, 1fr); }
+  .grid--6        { grid-template-columns: repeat(3, 1fr); }
+  .gallery        { grid-template-columns: repeat(2, 1fr); }
+  .modal__box     { grid-template-columns: 1fr; }
+  .modal__cover   { max-width: 200px; }
 }
 
 @media (max-width: 520px) {

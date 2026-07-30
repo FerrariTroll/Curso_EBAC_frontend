@@ -14,8 +14,8 @@
       <nav class="nav">
         <a href="#saga">A Saga</a>
         <a href="#filmes">Filmes</a>
-        <a href="#trailer">Trailer</a>
-        <a href="#galeria">Galeria</a>
+        <a href="#legado">Legado</a>
+        <a href="#personagens">Personagens</a>
       </nav>
     </div>
   </header>
@@ -29,7 +29,7 @@
           <p class="subtitle">Uma saga épica de heróis, vilões e a eterna batalha entre o bem e o mal — contada em seis filmes inesquecíveis.</p>
 
           <div class="actions">
-            <a class="btn btn--primary" href="#trailer">Ver trailer</a>
+            <a class="btn btn--primary" href="#legado">Ver legado</a>
             <a class="btn btn--outline" href="#filmes">Ver filmes</a>
           </div>
 
@@ -65,7 +65,7 @@
       <div class="container">
         <h2>A Saga</h2>
         <p>
-          Star Wars é uma das franquias mais icônicas da história do cinema. Criada por George Lucas, a saga se divide em duas trilogias: a <strong>Trilogia Prequel</strong> (Episódios I, II e III), que conta a ascensão e queda de Anakin Skywalker, e a <strong>Trilogia Original</strong> (Episódios IV, V e VI), que acompanha Luke Skywalker na luta para restaurar a paz na galáxia e resgatar o pai do lado sombrio da Força.
+          Star Wars é uma das franquias mais icônicas da história do cinema. Criada por George Lucas, a saga é a jornada de Anakin Skywalker — sua ascensão, queda e redenção — contada em duas trilogias que se espelham: onde a primeira mostra um pai sucumbindo ao lado sombrio por medo de perder quem ama, a segunda mostra o filho resistindo à mesma tentação para salvá-lo. A Trilogia Prequel (Episódios I, II e III) narra como um menino escravo, apontado como o "Escolhido" para trazer equilíbrio à Força, é seduzido pelo lado sombrio e se transforma em Darth Vader. A Trilogia Original (Episódios IV, V e VI), por sua vez, acompanha seu filho, Luke Skywalker, na luta para restaurar a paz na galáxia e resgatar o pai das garras do Império, recusando-se a repetir o erro que o transformou em vilão — fechando o ciclo que a primeira trilogia abre.          
         </p>
       </div>
     </section>
@@ -74,57 +74,92 @@
       <div class="container">
         <h2>Os Filmes</h2>
         <div class="grid grid--6">
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 1.jpg"
+            data-ep="Episódio I"
+            data-title="A Ameaça Fantasma"
+            data-meta="1999 • 136 min"
+            data-sinopse="Dois Jedis escoltam a rainha de Naboo enquanto descobrem um menino escravo com um potencial extraordinário para a Força — o possível Escolhido das profecias."
+            data-elenco="Liam Neeson, Ewan McGregor, Natalie Portman, Jake Lloyd">
             <p class="card__ep">Episódio I</p>
             <h3>A Ameaça Fantasma</h3>
-            <p>1999 • 136 min</p>
+            <p class="card__meta">1999 • 136 min</p>
           </article>
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 2.jpg"
+            data-ep="Episódio II"
+            data-title="Ataque dos Clones"
+            data-meta="2002 • 142 min"
+            data-sinopse="Anakin Skywalker se apaixona por Padmé enquanto um misterioso exército de clones é descoberto e a galáxia marcha inevitavelmente para a guerra."
+            data-elenco="Ewan McGregor, Natalie Portman, Hayden Christensen, Christopher Lee">
             <p class="card__ep">Episódio II</p>
             <h3>Ataque dos Clones</h3>
-            <p>2002 • 142 min</p>
+            <p class="card__meta">2002 • 142 min</p>
           </article>
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 3.jpg"
+            data-ep="Episódio III"
+            data-title="A Vingança dos Sith"
+            data-meta="2005 • 140 min"
+            data-sinopse="Consumido pelo medo de perder Padmé, Anakin sucumbe ao lado sombrio da Força, se transforma em Darth Vader e assiste à queda da República e ao nascimento do Império."
+            data-elenco="Ewan McGregor, Natalie Portman, Hayden Christensen, Ian McDiarmid">
             <p class="card__ep">Episódio III</p>
             <h3>A Vingança dos Sith</h3>
-            <p>2005 • 140 min</p>
+            <p class="card__meta">2005 • 140 min</p>
           </article>
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 4.jpg"
+            data-ep="Episódio IV"
+            data-title="Uma Nova Esperança"
+            data-meta="1977 • 121 min"
+            data-sinopse="Luke Skywalker, um jovem fazendeiro de Tatooine, descobre seu destino como Jedi e se une à Aliança Rebelde para destruir a Estrela da Morte, a arma suprema do Império."
+            data-elenco="Mark Hamill, Harrison Ford, Carrie Fisher, Alec Guinness">
             <p class="card__ep">Episódio IV</p>
             <h3>Uma Nova Esperança</h3>
-            <p>1977 • 121 min</p>
+            <p class="card__meta">1977 • 121 min</p>
           </article>
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 5.jpg"
+            data-ep="Episódio V"
+            data-title="O Império Contra-Ataca"
+            data-meta="1980 • 124 min"
+            data-sinopse="O Império persegue a Aliança enquanto Luke treina com o Mestre Yoda em Dagobah — até que uma revelação de Darth Vader abala as bases de tudo que ele acreditava."
+            data-elenco="Mark Hamill, Harrison Ford, Carrie Fisher, Billy Dee Williams">
             <p class="card__ep">Episódio V</p>
             <h3>O Império Contra-Ataca</h3>
-            <p>1980 • 124 min</p>
+            <p class="card__meta">1980 • 124 min</p>
           </article>
-          <article class="card">
+          <article class="card"
+            data-img="./img/Ep 6.jpg"
+            data-ep="Episódio VI"
+            data-title="O Retorno de Jedi"
+            data-meta="1983 • 131 min"
+            data-sinopse="Luke enfrenta Darth Vader e o Imperador numa batalha que vai além da guerra — é uma última tentativa de resgatar o pai e provar que ainda há bem nele."
+            data-elenco="Mark Hamill, Harrison Ford, Carrie Fisher, Ian McDiarmid">
             <p class="card__ep">Episódio VI</p>
             <h3>O Retorno de Jedi</h3>
-            <p>1983 • 131 min</p>
+            <p class="card__meta">1983 • 131 min</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="trailer" class="section section--panel">
+    <section id="legado" class="section section--panel">
       <div class="container">
-        <h2>Trailer</h2>
-        <div class="video">
-          <iframe
-            src="https://www.youtube.com/embed/sGbxmsDFVnE"
-            title="Star Wars — Trailer Oficial"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
+        <h2>Legado</h2>
+        <p>
+           Mais do que uma história de ficção científica, Star Wars redefiniu os limites do próprio cinema. Para viabilizar os efeitos visuais do primeiro filme, em 1977, George Lucas fundou a Industrial Light & Magic, que se tornaria referência mundial em efeitos especiais, e criou o padrão de som THX para garantir que os cinemas reproduzissem o áudio da forma como foi concebido. A trilha sonora orquestral de John Williams, com temas como os de Luke, do Império e da Força, resgatou o uso da música sinfônica no cinema popular e se tornou parte da memória afetiva de gerações inteiras — poucas franquias têm uma identidade sonora tão reconhecível quanto essa.
+
+          O impacto da saga vai muito além da tela. Star Wars redefiniu o modelo de negócio de Hollywood, popularizando o merchandising (bonecos, brinquedos, produtos licenciados) como parte central da economia de um filme, algo que até então não existia em grande escala. Termos e conceitos criados por Lucas — "lado sombrio da Força", "sabre de luz", "Jedi" — entraram para o vocabulário popular mesmo entre quem nunca assistiu aos filmes, e a saga construiu um dos universos ficcionais mais expansivos e influentes da cultura pop, se estendendo para livros, séries, quadrinhos e jogos.
+
+          Quase cinco décadas depois de sua estreia, Star Wars continua influenciando cineastas de gerações posteriores e é frequentemente citada como uma das obras que moldaram o próprio conceito de blockbuster moderno — provando que uma história mítica sobre um pai e um filho, contada em escala épica, pode atravessar o tempo e continuar conquistando novos públicos.
+        </p>
       </div>
     </section>
 
-    <section id="galeria" class="section section--panel">
+    <section id="personagens" class="section section--panel">
       <div class="container">
-        <h2>Galeria</h2>
+        <h2>Personagens</h2>
         <div class="gallery">
           <img src="./img/still-1.jpg" alt="Cena de Star Wars" />
           <img src="./img/still-2.jpg" alt="Cena de Star Wars" />
@@ -140,6 +175,23 @@
       <p>Landing page feita para o exercício EBAC — Módulo 21.</p>
     </div>
   </footer>
+
+  <!-- Modal holográfico -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__overlay" id="modal-overlay"></div>
+    <div class="modal__box">
+      <button class="modal__close" id="modal-close">✕</button>
+      <img class="modal__cover" id="modal-cover" src="" alt="">
+      <div class="modal__info">
+        <p class="modal__ep-label" id="modal-ep"></p>
+        <h2 class="modal__title" id="modal-title"></h2>
+        <p class="modal__meta" id="modal-meta"></p>
+        <p class="modal__sinopse" id="modal-sinopse"></p>
+        <p class="modal__elenco-label">Elenco</p>
+        <p class="modal__atores" id="modal-atores"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="./js/main.js"></script>
 </body>
