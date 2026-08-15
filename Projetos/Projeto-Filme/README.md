@@ -1,6 +1,6 @@
 # Landing Page — Filme
 
-Projeto desenvolvido como exercício do Módulo 21 da EBAC.
+Projeto desenvolvido como exercício da EBAC.
 
 ## Sobre
 
