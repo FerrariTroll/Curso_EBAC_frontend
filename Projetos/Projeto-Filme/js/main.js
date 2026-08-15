@@ -23,24 +23,37 @@ dots.forEach(dot => {
 });
 
 
-// 2. Modal holográfico
+// 2. FAQ accordion
 // ─────────────────────────────────────────────
-const modal       = document.getElementById('modal');
-const modalCover  = document.getElementById('modal-cover');
-const modalEp     = document.getElementById('modal-ep');
-const modalTitle  = document.getElementById('modal-title');
-const modalMeta   = document.getElementById('modal-meta');
-const modalSin    = document.getElementById('modal-sinopse');
-const modalAtores = document.getElementById('modal-atores');
+document.querySelectorAll('.faq__item').forEach(item => {
+  item.querySelector('.faq__question').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+
+// 3. Modal holográfico
+// ─────────────────────────────────────────────
+const modal            = document.getElementById('modal');
+const modalCover       = document.getElementById('modal-cover');
+const modalEp          = document.getElementById('modal-ep');
+const modalTitle       = document.getElementById('modal-title');
+const modalMeta        = document.getElementById('modal-meta');
+const modalSin         = document.getElementById('modal-sinopse');
+const modalElencoLabel = document.getElementById('modal-elenco-label');
+const modalAtores      = document.getElementById('modal-atores');
 
 function openModal(card) {
-  modalCover.src        = card.dataset.img;
-  modalCover.alt        = card.dataset.title;
-  modalEp.textContent   = card.dataset.ep;
-  modalTitle.textContent = card.dataset.title;
-  modalMeta.textContent = card.dataset.meta;
-  modalSin.textContent  = card.dataset.sinopse;
-  modalAtores.textContent = card.dataset.elenco;
+  modalCover.src             = card.dataset.img;
+  modalCover.alt             = card.dataset.title;
+  modalEp.textContent        = card.dataset.ep;
+  modalTitle.textContent     = card.dataset.title;
+  modalMeta.textContent      = card.dataset.meta;
+  modalSin.textContent       = card.dataset.sinopse;
+  modalElencoLabel.textContent = card.dataset.elencoLabel || 'Elenco';
+  modalAtores.textContent    = card.dataset.elenco;
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
 }
